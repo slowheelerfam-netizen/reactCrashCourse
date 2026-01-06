@@ -8,28 +8,35 @@ function Home() {
     const [users, setUsers] = useState([])
 
     async function fetchUsers() {
-     const { data } = await axios.get(`https://jsonplaceholder.typicode.com/users/{id}`)
+     const { data } = await axios.get(`https://jsonplaceholder.typicode.com/users`)
        setUsers(data) 
        console.log(data)
     }
-    useEffect (() => {   
-        fetchUsers(); 
+    useEffect (() => {  
+        setTimeout(() => {
+        fetchUsers();
+        }, 2000); 
     }, []);
 
-    const pixels = "1px";
+function renderUsers() {
+    return users.map((user) => (
+        <Link to={`/users/${user.id}`} key={user.id}>
+        <User
+            id={user.id} 
+            name={user.name} 
+            email={user.email}
+            username={user.username}
+        />
+        </Link>
+        ))
+}
 
+function renderSkeletonLoading() {
+    return <h1>Loading...</h1>
+}
     return (
         <div>
-          {users.map((user) => (
-            <Link to={`/users/${user.id}`} key={user.id}>
-            <User
-                id={user.id} 
-                name={user.name} 
-                email={user.email}
-                username={user.username}
-            />
-            </Link>
-         ))}  
+           {users.length ? renderUsers() : renderSkeletonLoading()} 
       </div>     
      );
     }
