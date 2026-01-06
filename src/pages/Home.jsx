@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import axios from 'axios'
-import User from "../components/User.jsx"
+import User from "../components/Users.jsx"
 import { Link } from "react-router-dom"
 
 // Below Mod5 1.9 @ 9:04)
@@ -8,7 +8,7 @@ function Home() {
     const [users, setUsers] = useState([])
 
     async function fetchUsers() {
-     const { data } = await axios.get("https://jsonplaceholder.typicode.com/users") 
+     const { data } = await axios.get(`https://jsonplaceholder.typicode.com/users/{id}`)
        setUsers(data) 
        console.log(data)
     }
