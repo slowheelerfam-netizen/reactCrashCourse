@@ -1,5 +1,38 @@
+body {
+  background-color: #f0f0f0;
+}
+
+.App {
+  text-align: center;
+}
+
+.user-details-wrapper {
+  position: relative;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 16px;
+  height: 80vh;
+  overflow-y: auto;
+}
+
+.counter-wrapper {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  border: 1px solid #ccc;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.post {
+  border: 1px solid #ccc;
+  padding: 16px;
+  margin: 16px 0;
+  border-radius: 8px;
+}
+
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .todo__wrapper {

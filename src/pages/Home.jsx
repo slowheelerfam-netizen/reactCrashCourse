@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from "react"
-import axios from 'axios'
-import User from "../components/Users.jsx"
-import { Link } from "react-router-dom"
+import React, { useEffect, useState } from "react";
+import axios from 'axios';
+import User from "../components/Users.jsx";
+import { Link } from "react-router-dom";
 
 // Below Mod5 1.9 @ 9:04)
 function Home() {
-    const [users, setUsers] = useState([])
+    const [users, setUsers] = useState([]);
 
     async function fetchUsers() {
-     const { data } = await axios.get(`https://jsonplaceholder.typicode.com/users`)
-       setUsers(data) 
-       console.log(data)
+     const { data } = await axios.get(`https://jsonplaceholder.typicode.com/users`);
+       setUsers(data); 
+       console.log(data);
     }
     useEffect (() => {  
         setTimeout(() => {
@@ -28,11 +28,11 @@ function renderUsers() {
             username={user.username}
         />
         </Link>
-        ))
+        ));
 }
 
 function renderSkeletonLoading() {
-    return <h1>Loading...</h1>
+    return <h1>Loading...</h1>;
 }
     return (
         <div>
